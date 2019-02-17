@@ -74,11 +74,24 @@ export class vec
 				@add v
 		return @
 
+	angle:=>
+		if @x == 0 and @y == 0 then return 0
+		return math.atan @y/@x
+
+	rotate:(rad)=>
+		x = @x*math.cos(rad) - @y*math.sin(rad)
+		y = @x*math.sin(rad) + @y*math.cos(rad)
+		@set x,y
+		return @
+
 	dis:(o)=>
 		return o\copy!\sub(@)\mag!
 
 	print:=>
 		return "<"..@x..","..@y..">"
+
+	pack:=>
+		return {@x,@y}
 
 
 vec.lerp=(a,b,t)->a\copy!\scale(1-t)\add b\copy!\scale(t)

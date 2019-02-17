@@ -1,3 +1,4 @@
+require "particle"
 
 export class Dusk extends Particle
 	img: love.graphics.newImage "pics/dust.png"
